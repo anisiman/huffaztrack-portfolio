@@ -1,0 +1,562 @@
+/* ─────────────────────────────────────────────────────────────
+   admin-attendance.css  — design tokens aligned with hifz-record.css
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Page shell ─────────────────────────────────────────────── */
+.admin-attendance-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.admin-attendance-page__title {
+    margin: 0;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.25;
+}
+
+.admin-attendance-page__subtitle {
+    margin: 0.125rem 0 0;
+    font-size: 0.875rem;
+    color: #94a3b8;
+}
+
+/* ── Filter toolbar ──────────────────────────────────────────── */
+.admin-attendance-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.admin-attendance-search,
+.admin-attendance-tool,
+.admin-attendance-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 3rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.875rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.admin-attendance-search {
+    min-width: min(100%, 22rem);
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    color: #64748b;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+.admin-attendance-search input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    color: #475569;
+    font: inherit;
+    outline: 0;
+}
+
+.admin-attendance-search svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #94a3b8;
+    flex-shrink: 0;
+}
+
+.admin-attendance-tool {
+    border: 1px solid #e2e8f0;
+    background: #fff;
+    color: #64748b;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+.admin-attendance-tool input,
+.admin-attendance-tool select {
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    color: #0f172a;
+    font: inherit;
+    font-weight: 600;
+    outline: 0;
+}
+
+.admin-attendance-tool input[type="date"] {
+    width: 8.9rem;
+    cursor: pointer;
+}
+
+.admin-attendance-tool svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
+
+/* Select tool — caret indicator matching hifz-tool--select::after */
+.admin-attendance-tool--select {
+    padding-right: 2.75rem;
+    position: relative;
+}
+
+.admin-attendance-tool--select select {
+    width: 100%;
+    min-width: 7.5rem;
+    cursor: pointer;
+}
+
+.admin-attendance-tool--select::after {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+/* Primary button — purple, matching hifz-button */
+.admin-attendance-button {
+    text-decoration: none;
+    justify-content: center;
+    border: 0;
+    background: #6d28d9;
+    color: #fff;
+    box-shadow: 0 14px 30px rgba(139, 92, 246, 0.25);
+    cursor: pointer;
+}
+
+.admin-attendance-button:hover {
+    background: #5b21b6;
+}
+
+/* Ghost/Clear button — slate, matching hafazan clear style */
+.admin-attendance-button--ghost {
+    border: 0;
+    background: #f1f5f9;
+    color: #64748b;
+    box-shadow: none;
+}
+
+.admin-attendance-button--ghost:hover {
+    background: #e2e8f0;
+    color: #475569;
+}
+
+/* ── Section panels — clean white, matching hifz-table-panel ─── */
+.admin-attendance-summary,
+.admin-attendance-panel {
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+}
+
+.admin-attendance-summary {
+    padding: 1.5rem;
+}
+
+.admin-attendance-summary__heading,
+.admin-attendance-panel__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.admin-attendance-summary__title,
+.admin-attendance-panel__title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.admin-attendance-summary__subtitle,
+.admin-attendance-panel__subtitle {
+    margin: 0.35rem 0 0;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Small pill chip — matches ldb-card__chip / hifz purple */
+.admin-attendance-summary__badge,
+.admin-attendance-panel__chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: #ede9fe;
+    color: #6d28d9;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.admin-attendance-panel__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* ── KPI cards grid ─────────────────────────────────────────── */
+.admin-attendance-summary__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 0.875rem;
+    margin-top: 1.35rem;
+}
+
+/* KPI card — matches hifz-stat exactly */
+.admin-attendance-card {
+    padding: 1rem 1.125rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.admin-attendance-card:hover {
+    border-color: #c4b5fd;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.12);
+    transform: translateY(-1px);
+}
+
+.admin-attendance-card--active {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.admin-attendance-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
+}
+
+.admin-attendance-card__icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.admin-attendance-card__icon--green { background: #dcfce7; color: #16a34a; }
+.admin-attendance-card__icon--red   { background: #fee2e2; color: #dc2626; }
+.admin-attendance-card__icon--amber { background: #fef3c7; color: #d97706; }
+.admin-attendance-card__icon--blue  { background: #dbeafe; color: #2563eb; }
+
+/* Label — matches hifz-stat__label (uppercase, 11px, tracked) */
+.admin-attendance-card__label {
+    margin: 0 0 0.375rem;
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Value — matches hifz-stat__value (28px bold) */
+.admin-attendance-card__value {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1;
+}
+
+.admin-attendance-card__note {
+    margin: 0.375rem 0 0;
+    color: #94a3b8;
+    font-size: 0.75rem;
+}
+
+/* ── Table panel ─────────────────────────────────────────────── */
+.admin-attendance-panel {
+    padding: 1.5rem 1.5rem 1.2rem;
+}
+
+.admin-attendance-table-wrap {
+    overflow-x: auto;
+    margin-top: 1.2rem;
+}
+
+/* ── Table — matches hifz-table ─────────────────────────────── */
+.admin-attendance-table {
+    width: 100%;
+    min-width: 860px;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+/* thead — matches hifz-table thead */
+.admin-attendance-table thead {
+    background: #f8fafc;
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.admin-attendance-table thead th {
+    padding: 1rem 1.25rem;
+    text-align: left;
+}
+
+/* tbody — matches hifz-table td */
+.admin-attendance-table tbody td {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid #f1f5f9;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.admin-attendance-table tbody tr:hover {
+    background: #fafbff;
+}
+
+.admin-attendance-row { cursor: pointer; }
+
+/* Strong/index cell — matches hifz-table__strong */
+.admin-attendance-table__strong {
+    color: #334155;
+    font-weight: 600;
+}
+
+/* ── Progress bar (rate column) — matches hafazan progress-bar ── */
+.admin-attendance-progress-bar {
+    height: 5px;
+    background: #e2e8f0;
+    border-radius: 99px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.admin-attendance-progress-bar__fill {
+    height: 100%;
+    border-radius: 99px;
+}
+
+/* ── Detail button — matches btn-detail from hifz-record ───────── */
+.admin-attendance-detail-button {
+    background: #ede9fe;
+    color: #7c3aed;
+    border: 1px solid #c4b5fd;
+    border-radius: 7px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.admin-attendance-detail-button:hover {
+    background: #ddd6fe;
+}
+
+/* ── Action icon buttons ─────────────────────────────────────── */
+.admin-attendance-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.admin-attendance-action,
+.admin-attendance-pagination__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 0;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.admin-attendance-action svg,
+.admin-attendance-pagination__button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.admin-attendance-action--edit   { background: #ffedd5; color: #f97316; border: 1px solid #fed7aa; }
+.admin-attendance-action--delete { background: #fef2f2; color: #ef4444; border: 1px solid #fecaca; }
+
+/* ── Badge styles (shared with modal) — matches hafazan .badge ── */
+.att-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.att-status--present            { background: #d1fae5; color: #059669; }
+.att-status--absent             { background: #fee2e2; color: #dc2626; }
+.att-status--absent_with_reason { background: #dbeafe; color: #2563eb; }
+.att-status--not_scanned        { background: #f1f5f9; color: #64748b; }
+
+/* Warning level badges */
+.wl-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.wl-badge--green  { background: #dcfce7; color: #15803d; }
+.wl-badge--amber  { background: #fef3c7; color: #b45309; }
+.wl-badge--orange { background: #ffedd5; color: #c2410c; }
+.wl-badge--red    { background: #fee2e2; color: #dc2626; }
+
+/* ── Modal — matches hifz-modal-backdrop / hifz-modal ──────────── */
+.admin-attendance-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.admin-attendance-modal--open { display: flex; }
+
+.admin-attendance-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.admin-attendance-modal__panel {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 100%);
+    max-height: min(960px, 90vh);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
+}
+
+.admin-attendance-modal__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.4rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Modal title — matches hifz-modal__title */
+.admin-attendance-modal__title {
+    margin: 0;
+    color: #0f172a;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* Modal subtitle — matches hifz-modal__sub */
+.admin-attendance-modal__subtitle {
+    margin: 0.3rem 0 0;
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+/* Close button — matches hifz-modal__close */
+.admin-attendance-modal__close {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 22px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.admin-attendance-modal__close:hover { color: #0f172a; }
+
+.admin-attendance-table-wrap--modal {
+    max-height: calc(90vh - 7rem);
+    margin-top: 0;
+    overflow: auto;
+}
+
+.admin-attendance-table--details { min-width: 680px; }
+
+/* ── Pagination ─────────────────────────────────────────────── */
+.admin-attendance-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid #f1f5f9;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.admin-attendance-pagination__button {
+    color: #94a3b8;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .admin-attendance-toolbar {
+        align-items: stretch;
+    }
+
+    .admin-attendance-search,
+    .admin-attendance-tool,
+    .admin-attendance-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .admin-attendance-summary,
+    .admin-attendance-panel {
+        padding: 1.15rem;
+        border-radius: 1.25rem;
+    }
+
+    .admin-attendance-table thead th,
+    .admin-attendance-table tbody td {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .admin-attendance-toolbar {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .admin-attendance-search {
+        max-width: 210px;
+    }
+}

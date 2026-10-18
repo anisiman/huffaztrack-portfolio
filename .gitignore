@@ -1,0 +1,59 @@
+# ---- Environment & secrets ----
+.env
+.env.*
+!.env.example
+/auth.json
+*.key
+*.pem
+/storage/*.key
+
+# ---- Dependencies ----
+/vendor
+/node_modules
+
+# ---- Data exports, dumps & spreadsheets ----
+/database/data/
+*.sql
+*.sql.gz
+*.sqlite
+*.sqlite-journal
+*.xlsx
+*.xls
+*.csv
+*.log
+
+# ---- Uploads & backups (keep only .gitignore placeholders) ----
+/storage/app/**
+!/storage/app/**/
+!/storage/app/**/.gitignore
+/storage/app/backups/
+/storage/app/private/cleanup-backups/
+/public/storage
+
+# ---- Generated cache, sessions & compiled files ----
+/bootstrap/cache/*.php
+/storage/framework/cache/**
+/storage/framework/sessions/**
+/storage/framework/testing/**
+/storage/framework/views/**
+!/storage/framework/**/
+!/storage/framework/**/.gitignore
+/storage/logs/**
+!/storage/logs/.gitignore
+/storage/pail
+/public/build
+/public/hot
+.phpunit.result.cache
+/.phpunit.cache
+
+# ---- Editor / OS ----
+.DS_Store
+Thumbs.db
+.phpactor.json
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+Homestead.json
+Homestead.yaml

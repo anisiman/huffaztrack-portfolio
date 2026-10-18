@@ -1,0 +1,81 @@
+.lecturer-form-card {
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    background: #fff;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+}
+
+.lecturer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.lecturer-form__grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.lecturer-form__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.lecturer-form__field input,
+.lecturer-form__field select {
+    min-height: 3rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid #dbe2ec;
+    border-radius: 0.9rem;
+    outline: none;
+    font-size: 0.95rem;
+    color: #334155;
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lecturer-form__field input:focus,
+.lecturer-form__field select:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.14);
+}
+
+.lecturer-form__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.lecturer-form-alert {
+    margin-bottom: 1.25rem;
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+}
+
+.lecturer-form-alert ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.lecturer-form-alert--error {
+    background: #fff1f2;
+    color: #be123c;
+    border: 1px solid #fecdd3;
+}
+
+.lecturer-form-page__link {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .lecturer-form__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

@@ -1,0 +1,35 @@
+.lecturer-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.lecturer-dashboard__title {
+    margin: 0;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.lecturer-dashboard__subtitle {
+    margin: 0.5rem 0 0;
+    color: #6b7280;
+}
+
+.lecturer-dashboard__hero {
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.04);
+}
+
+.lecturer-dashboard__hero h2,
+.lecturer-dashboard__hero p {
+    margin: 0;
+}
+
+.lecturer-dashboard__hero p {
+    margin-top: 0.5rem;
+    color: #64748b;
+}
